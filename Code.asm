@@ -1,0 +1,71 @@
+ORG 0000H ; Start address
+START:
+ MOV P3, #0FFH ; Make Port 3 input (high for input mode)
+ MOV P0, #00H ; Clear all motor and buzzer pins
+MAIN_LOOP:
+ MOV A, P3 ; Read IR sensor values
+ CJNE A, #8FH, CHECK9F ; 8F = Stop + Buzzer
+ ACALL STOP
+ SJMP MAIN_LOOP
+CHECK9F:
+ CJNE A, #9FH, CHECKAF
+ ; 9F = Right turn
+ CLR P0.6 ; Buzzer off
+ SETB P0.4 ; LM1
+ CLR P0.5 ; LM2
+ CLR P0.2 ; RM1
+ CLR P0.3 ; RM2
+ SJMP MAIN_LOOP
+CHECKAF:
+ CJNE A, #0AFH, CHECKBF
+ ; AF = Forward
+ ACALL FORWARD
+ SJMP MAIN_LOOP
+CHECKBF:
+ CJNE A, #0BFH, CHECKCF
+ ; BF = Forward
+ ACALL FORWARD
+ SJMP MAIN_LOOP
+CHECKCF:
+ CJNE A, #0CFH, CHECKDF
+ ; CF = Left
+ CLR P0.6
+ SETB P0.2 ; RM1
+ CLR P0.3 ; RM2
+ CLR P0.4 ; LM1
+ CLR P0.5 ; LM
+SJMP MAIN_LOOP
+CHECKDF:
+ CJNE A, #0DFH, CHECKEF
+ ; DF = Left
+ CLR P0.6
+ SETB P0.2
+ CLR P0.3
+ CLR P0.4
+ CLR P0.5
+ SJMP MAIN_LOOP
+CHECKEF:
+ CJNE A, #0EFH, CHECKFF
+ ; EF = Forward
+ ACALL FORWARD
+ SJMP MAIN_LOOP
+CHECKFF:
+ CJNE A, #0FFH, MAIN_LOOP
+ ; FF = Forward
+ ACALL FORWARD
+ SJMP MAIN_LOOP
+FORWARD:
+ CLR P0.6 ; Buzzer off
+ SETB P0.4 ; LM1
+ CLR P0.5 ; LM2
+ SETB P0.2 ; RM1
+ CLR P0.3 ; RM2
+ RET
+STOP:
+ SETB P0.6 ; Turn on buzzer
+ CLR P0.4
+ CLR P0.5
+ CLR P0.2
+ CLR P0.3
+ RET
+END
