@@ -1,24 +1,38 @@
-# IR-Sensor-Controlled-automobile
+# 📌 IR-Sensor-Controlled-automobile
 The main aim of this project is to design and build an autonomous robot that cleverly uses IR sensors to navigate its environment while providing real-time updates through a buzzer alert system
 
 # 🔩 Hardware Components Used
-AT89S52 Microcontroller 
+✅ AT89S52 Microcontroller 
 
-L293D Motor Driver IC 
+✅ L293D Motor Driver IC 
 
-3 TSOP18638 IR Sensors 
+✅ 3 TSOP18638 IR Sensors 
 
-2 DC Motors 
+✅2 DC Motors 
 
-BC547 NPN Transistor 
+✅ BC547 NPN Transistor 
 
-Resistor 
+✅ 1 Resistor 
 
-5V Power Supply 
+✅ Buzzer
 
-Connecting Wires
+✅ 5V Power Supply 
 
-Breadboard 
+✅ Connecting Wires
+
+✅ Breadboard 
+
+# 🔄 Software Required
+Download the 8051 isp Program and driver and follow the below steps:
+https://www.instructables.com/USBASP-Installation-in-Windows-10/
+Install Keil uVision
+
+# ⚡ Setup
+1.Follow the circuit diagram and make the proper connections of all the components.
+
+2.Load the Code.asm file to the microcontroller.
+
+
 
 
 
