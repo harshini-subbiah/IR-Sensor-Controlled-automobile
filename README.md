@@ -20,23 +20,6 @@ Connecting Wires
 
 Breadboard 
 
-# DIGITAL OUTPUT TABLE:
 
-PIN 3.6 (left) PIN 3.5 (centre) PIN 3.4 (right)   OUTPUT
 
-  1                1                1             FORWARD
-  
-  1                1                0             FORWARD
-  
-  1                0                1             LEFT
-  
-  1                0                0             LEFT
-  
-  0                1                1             FORWARD
-  
-  0                1                0             FORWARD
-  
-  0                0                1             RIGHT
-  
-  0                0                0             STOP AND BUZZER
   
