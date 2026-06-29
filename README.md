@@ -59,8 +59,6 @@ https://www.instructables.com/USBASP-Installation-in-Windows-10/
 
 ---
 
----
-
 ##  Getting Started
 
 ### 1. Assemble the Hardware
